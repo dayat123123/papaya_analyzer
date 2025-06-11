@@ -82,19 +82,19 @@ class _ImagePickerPageState extends State<ImagePickerPage> {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = getAppThemeCubit.isDarkMode;
     return Scaffold(
-      appBar: AppBar(title: const Text("Pilih Gambar")),
+      backgroundColor: isDark ? null : context.themeColors.whiteColor,
+      appBar: AppBar(
+        title: const Text("Pilih Gambar"),
+        backgroundColor: isDark ? null : context.themeColors.whiteColor,
+      ),
       body: Padding(
         padding: AppPadding.all,
         child: Column(
-          children: [
-            Text(
-              "Gambar ini akan digunakan untuk pengujian model machine learning untuk mendeteksi gambar dengan model yang dibuat menggunakan algoritma CNN",
-              style: context.textStyle.body.copyWith(fontSize: 14),
-              textAlign: TextAlign.start,
-            ),
-            Expanded(child: _imageWidget()),
-          ],
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [Center(child: _imageWidget())],
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
@@ -136,7 +136,7 @@ class _ImagePickerPageState extends State<ImagePickerPage> {
               borderRadius: AppBorderRadius.smallNumber,
               color: context.themeColors.primaryColor,
               child: Text(
-                "Analisis Gambar",
+                "Mulai",
                 style: context.textStyle.title.copyWith(
                   color: context.themeColors.whiteColor,
                 ),

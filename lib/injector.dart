@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:papayas_analyzer/core/local_storage/local_storage.dart';
 import 'package:papayas_analyzer/core/router/app_navigator.dart';
 import 'package:papayas_analyzer/core/tensorflow/tensorflow.dart';
@@ -14,6 +15,7 @@ HistoryBloc get getHistoryBloc => injector.get<HistoryBloc>();
 
 Future<void> initializeApp() async {
   await _initDependency();
+  await initializeDateFormatting('en', null);
   await getTensorflow.loadTFLiteModel();
 }
 

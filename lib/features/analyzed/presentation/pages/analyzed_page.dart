@@ -1,6 +1,5 @@
-import 'dart:io';
+import 'package:papayas_analyzer/shared/misc/formatters.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:papayas_analyzer/core/router/route_path.dart';
 import 'package:papayas_analyzer/core/tensorflow/tensorflow.dart';
 import 'package:papayas_analyzer/core/theme/theme.dart';
@@ -24,91 +23,107 @@ class _AnalyzedPageState extends State<AnalyzedPage> {
     );
   }
 
+  void _onTapNewFoto() {
+    getRouter.push(RoutePath.imagePickerPath);
+  }
+
   @override
   Widget build(BuildContext context) {
+    final deskripsi = Formatters.getDeskripsi(widget.result.selected);
+    final bool isDark = getAppThemeCubit.isDarkMode;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: _buildAppBar(context),
-      body: Stack(
+      backgroundColor: isDark ? null : context.themeColors.whiteColor,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _buildBackground(context),
-          DraggableScrollableSheet(
-            initialChildSize: 0.65,
-            minChildSize: 0.65,
-            maxChildSize: 0.95,
-            snap: true,
-            builder: (context, scrollController) {
-              return Container(
-                padding: const EdgeInsets.only(top: 20),
-                decoration: BoxDecoration(
-                  color: context.themeColors.appContainerBackground,
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20),
-                  ),
-                  border: Border(
-                    top: BorderSide(
-                      width: 0.5,
-                      color: context.themeColors.border,
-                    ),
-                  ),
-                ),
-                child: Column(
-                  children: [
-                    Center(
-                      child: Container(
-                        width: 40,
-                        height: 5,
-                        margin: const EdgeInsets.only(bottom: 12),
-                        decoration: BoxDecoration(
-                          color: context.themeColors.hintColor,
-                          borderRadius: BorderRadius.circular(10),
+          SizedBox(
+            height: context.fullHeight * 0.4 + 50,
+            child: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                _buildBackground(context),
+                Positioned(
+                  bottom: 0,
+                  left: 16,
+                  right: 16,
+                  child: CardContainer(
+                    alignment: Alignment.centerLeft,
+                    padding: AppPadding.all,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Hasil deteksi:",
+                          style: context.textStyle.appbarTitle,
                         ),
-                      ),
+                        SizedBox(height: 6.0),
+                        Text(
+                          "     ${Formatters.formatSelectedResultName(widget.result.selected)} (${Formatters.formatSelectedResultNameTranslate(widget.result.selected)})",
+                        ),
+                        SizedBox(height: 6.0),
+                        Text(
+                          "Tingkat Keyakinan: ${Formatters.formatAccuracy(widget.result.accuracy)}",
+                        ),
+                      ],
                     ),
-                    Expanded(
-                      child: ListView.separated(
-                        controller: scrollController,
-                        padding: AppPadding.horizontal,
-                        itemCount: 20,
-                        itemBuilder: (context, index) {
-                          return CardContainer(child: Text('Item ke-$index'));
-                        },
-                        separatorBuilder:
-                            (context, index) => SizedBox(height: 15),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
-              );
-            },
+              ],
+            ),
           ),
+
+          const SizedBox(height: 10),
+          Padding(
+            padding: AppPadding.all,
+            child: Text("Deskripsi:", style: context.textStyle.appbarTitle),
+          ),
+          ListView.separated(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            padding: AppPadding.horizontal,
+            itemBuilder: (context, index) {
+              return Text(deskripsi[index]);
+            },
+            separatorBuilder: (context, index) => SizedBox(height: 6.0),
+            itemCount: deskripsi.length,
+          ),
+
+          Spacer(),
+          Center(
+            child: CardContainer(
+              onTap: _onTapNewFoto,
+              color: context.themeColors.primaryColor,
+              width: context.fullWidth * 0.9,
+              height: 50,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Icon(Icons.camera_alt, color: context.themeColors.whiteColor),
+                  SizedBox(width: 8.0),
+                  Text(
+                    "Ambil Foto Baru",
+                    style: TextStyle(
+                      color: context.themeColors.whiteColor,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(height: 24.0),
         ],
       ),
     );
   }
 
   AppBar _buildAppBar(BuildContext context) {
-    return AppBar(
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      leading: Padding(
-        padding: const EdgeInsets.only(left: 15),
-        child: CircleAvatar(
-          backgroundColor: context.theme.scaffoldBackgroundColor.withValues(
-            alpha: 0.5,
-          ),
-          child: IconButton(
-            icon: Icon(
-              Platform.isIOS ? Icons.arrow_back_ios_new : Icons.arrow_back,
-              color: context.themeColors.fontColor,
-            ),
-            onPressed: () => context.pop(),
-          ),
-        ),
-      ),
-      title: Text(widget.result.selected.name.toUpperCase()),
-    );
+    return AppBar(backgroundColor: Colors.transparent, elevation: 0);
   }
 
   Widget _buildBackground(BuildContext context) {

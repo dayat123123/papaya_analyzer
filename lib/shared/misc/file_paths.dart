@@ -10,5 +10,10 @@ class FilePaths {
   static const String h1Jpeg = "$_imagesPath/h1.jpeg";
   static const String h2Jpeg = "$_imagesPath/h2.jpeg";
   static const String h3Jpeg = "$_imagesPath/h3.jpeg";
-  static const String modelTFLite = "$_tensorflowPath/banana_apple.tflite";
+  static const String mentahJpeg = "$_imagesPath/mentah.jpeg";
+  static const String masakJpeg = "$_imagesPath/masak.jpg";
+  static const String setengahJpeg = "$_imagesPath/setengah.jpeg";
+  static const String busukJpeg = "$_imagesPath/busuk.jpeg";
+  static const String modelTFLite =
+      "$_tensorflowPath/model_papaya_20250515_2.tflite";
 }

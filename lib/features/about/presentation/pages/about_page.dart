@@ -41,7 +41,14 @@ class _AboutPageState extends State<AboutPage> {
                 ContainerWithSubItem(
                   title: "Creator",
                   listWidget: [
-                    ItemWidgetContainer(title: "Nama", subtitle: "23323"),
+                    ItemWidgetContainer(
+                      title: "Nama",
+                      subtitle: "Asma Rosnaida",
+                    ),
+                    ItemWidgetContainer(
+                      title: "Universitas",
+                      subtitle: "Universitas Islam Indragiri",
+                    ),
                   ],
                 ),
                 SizedBox(height: 20),
@@ -62,7 +69,7 @@ class _AboutPageState extends State<AboutPage> {
                     ),
                     ItemWidgetContainer(
                       title: "Jumlah Class",
-                      subtitle: "4 Class (unripe, semi ripe, ripe, overripe)",
+                      subtitle: "4 Class (unripe, semi ripe, ripe, rot)",
                     ),
                     ItemWidgetContainer(
                       title: "Optimiasasi",
@@ -79,17 +86,30 @@ class _AboutPageState extends State<AboutPage> {
                 ContainerWithSubItem(
                   title: "Training Model",
                   listWidget: [
-                    ItemWidgetContainer(title: "Epochs", subtitle: "30 Epochs"),
+                    ItemWidgetContainer(title: "Epochs", subtitle: "30 Epoch"),
                     ItemWidgetContainer(
                       title: "Akurasi Training",
-                      subtitle: "0.982",
+                      subtitle: "88.46 %",
                     ),
                     ItemWidgetContainer(
-                      title: "Akurasi Validation",
-                      subtitle: "0.956",
+                      title: "Area under curve (AUC)",
+                      subtitle: "0.977",
                     ),
-                    ItemWidgetContainer(title: "Loss", subtitle: "0.956"),
-                    ItemWidgetContainer(title: "Val Loss", subtitle: "0.956"),
+                    ItemWidgetContainer(
+                      title: "Precision (avg)",
+                      subtitle:
+                          "Rot: 0.97\nRipe: 0.82\nSemi Ripe: 0.77\nUnripe: 0.93",
+                    ),
+                    ItemWidgetContainer(
+                      title: "Recall (avg)",
+                      subtitle:
+                          "Rot: 0.84\nRipe: 0.84\nSemi Ripe: 0.79\nUnripe: 1",
+                    ),
+                    ItemWidgetContainer(
+                      title: "F1-score (avg)",
+                      subtitle:
+                          "Rot: 0.9\nRipe: 0.83\nSemi Ripe: 0.78\nUnripe: 0.96",
+                    ),
                   ],
                 ),
                 SizedBox(height: 10),

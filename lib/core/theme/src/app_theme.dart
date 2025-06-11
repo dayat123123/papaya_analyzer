@@ -8,30 +8,32 @@ abstract class AppTheme {
     fontFamily: _fontFamily,
     brightness: Brightness.light,
     primaryColor: AppColors.primary,
-    scaffoldBackgroundColor: AppColors.backgroundLight,
-    canvasColor: AppColors.backgroundLightSecondary,
+    scaffoldBackgroundColor: AppColors.canvasColorLight,
+    canvasColor: AppColors.backgroundLight,
     colorScheme: const ColorScheme.light(
       primary: AppColors.primary,
       onPrimary: Colors.white,
       onSurface: AppColors.black,
     ),
+
     appBarTheme: AppBarTheme(
       elevation: 2,
       centerTitle: false,
       surfaceTintColor: Colors.transparent,
       shadowColor: Colors.transparent,
-      backgroundColor: AppColors.backgroundLight,
+      backgroundColor: AppColors.canvasColorLight,
       titleTextStyle: AppTextStyles.light.appbarTitle,
       systemOverlayStyle: SystemUiOverlayStyle.dark.copyWith(
         statusBarColor: Colors.transparent,
         systemNavigationBarColor: Colors.transparent,
       ),
     ),
-    progressIndicatorTheme: ProgressIndicatorThemeData(
+
+    progressIndicatorTheme: const ProgressIndicatorThemeData(
       color: AppColors.primary,
       strokeWidth: 6,
     ),
-    dividerTheme: DividerThemeData(color: AppColors.separatorLight),
+    dividerTheme: const DividerThemeData(color: AppColors.separatorLight),
     dividerColor: AppColors.separatorLight,
     extensions: <ThemeExtension<dynamic>>[
       AppThemeColors.light,
@@ -57,20 +59,20 @@ abstract class AppTheme {
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: AppColors.formFieldBackgroundLight,
-      border: OutlineInputBorder(
+      border: const OutlineInputBorder(
         borderSide: BorderSide(color: AppColors.borderDefaultLight),
       ),
       labelStyle: AppTextStyles.light.label,
-      hintStyle: TextStyle(color: AppColors.textHintLight),
+      hintStyle: const TextStyle(color: AppColors.textHintLight),
     ),
-    iconTheme: IconThemeData(color: AppColors.textPrimaryLight),
-    floatingActionButtonTheme: FloatingActionButtonThemeData(
+    iconTheme: const IconThemeData(color: AppColors.textPrimaryLight),
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
       backgroundColor: AppColors.primary,
     ),
     dialogTheme: DialogTheme(
       backgroundColor: AppColors.backgroundLight,
       surfaceTintColor: AppColors.backgroundLight,
-      shape: RoundedRectangleBorder(borderRadius: AppBorderRadius.large),
+      shape: const RoundedRectangleBorder(borderRadius: AppBorderRadius.large),
       titleTextStyle: AppTextStyles.light.title,
       contentTextStyle: AppTextStyles.light.body,
     ),
@@ -99,11 +101,11 @@ abstract class AppTheme {
         systemNavigationBarColor: Colors.transparent,
       ),
     ),
-    progressIndicatorTheme: ProgressIndicatorThemeData(
+    progressIndicatorTheme: const ProgressIndicatorThemeData(
       color: AppColors.primary,
       strokeWidth: 6,
     ),
-    dividerTheme: DividerThemeData(color: AppColors.separatorDark),
+    dividerTheme: const DividerThemeData(color: AppColors.separatorDark),
     dividerColor: AppColors.separatorDark,
     extensions: <ThemeExtension<dynamic>>[
       AppThemeColors.dark,
@@ -129,20 +131,20 @@ abstract class AppTheme {
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: AppColors.formFieldBackgroundDark,
-      border: OutlineInputBorder(
+      border: const OutlineInputBorder(
         borderSide: BorderSide(color: AppColors.borderDefaultDark),
       ),
       labelStyle: AppTextStyles.dark.label,
-      hintStyle: TextStyle(color: AppColors.textHintDark),
+      hintStyle: const TextStyle(color: AppColors.textHintDark),
     ),
-    iconTheme: IconThemeData(color: AppColors.textPrimaryDark),
-    floatingActionButtonTheme: FloatingActionButtonThemeData(
+    iconTheme: const IconThemeData(color: AppColors.textPrimaryDark),
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
       backgroundColor: AppColors.primary,
     ),
     dialogTheme: DialogTheme(
       backgroundColor: AppColors.backgroundDarkSecondary,
       surfaceTintColor: AppColors.backgroundDarkSecondary,
-      shape: RoundedRectangleBorder(borderRadius: AppBorderRadius.large),
+      shape: const RoundedRectangleBorder(borderRadius: AppBorderRadius.large),
       titleTextStyle: AppTextStyles.dark.title,
       contentTextStyle: AppTextStyles.dark.body,
     ),

@@ -202,7 +202,7 @@ class DialogAndNotification {
     final primaryColor = context.themeColors.whiteColor;
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.backgroundDarkTertiary,
+        color: AppColors.snackbarBackgroundColor,
         borderRadius: borderRadius,
       ),
       child: Stack(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:papayas_analyzer/core/permissions_handler/permissions_handler.dart';
 import 'package:papayas_analyzer/core/router/route_path.dart';
 import 'package:papayas_analyzer/core/theme/theme.dart';
 import 'package:papayas_analyzer/features/landing/presentation/widgets/carousel_widget_list.dart';
@@ -22,6 +23,10 @@ class _LandingPageState extends State<LandingPage> {
 
   @override
   void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
+      await Future.delayed(Duration(milliseconds: 250));
+      await PermissionsHandler.requestCameraAndStoragePermission();
+    });
     super.initState();
   }
 

@@ -8,6 +8,7 @@ class RoutePath {
   static const String infoPath = "/info";
   static const String settingPath = "/setting";
   static const String imagePickerPath = "/imagePicker";
+  static const String detailsPath = "/details";
   static const String fullScreenImageViewPath = "/fullScreenImageView";
   static const String analyzedPath = "/analyzed";
 }

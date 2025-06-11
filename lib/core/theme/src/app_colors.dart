@@ -21,20 +21,18 @@ abstract class AppColors {
 
   // === FORM FIELD BACKGROUND ===
   static const formFieldBackgroundLight = Color(0xFFF2F2F7);
-  static const formFieldBackgroundDark = Color(0xFFA0A0A5);
+  static const formFieldBackgroundDark = Color(0xFF3A3B3C);
 
   // === BORDER ===
   static const borderDefaultLight = Color(0xFFD8D8D8);
   static const borderDefaultDark = Color(0xFF3A3A3C);
 
   // === BACKGROUND ===
-  static const backgroundLight = Color(0xFFFFFFFF);
-  static const backgroundLightSecondary = Color(0xFFF2F2F7);
-  static const backgroundLightTertiary = Color(0xFFF9F9F9);
+  static const backgroundLight = Color(0xFFF4BA80);
+  static const canvasColorLight = Color(0xFFF3B271);
 
   static const backgroundDark = Color(0xFF141414);
   static const backgroundDarkSecondary = Color(0xFF1C1C1E);
-  static const backgroundDarkTertiary = Color(0xFF2C2C2E);
 
   // === STATUS COLORS ===
   static const success = Color(0xFF27C55D);
@@ -59,4 +57,7 @@ abstract class AppColors {
   // === SEPARATOR ===
   static const separatorLight = Color(0xFFC6C6C8);
   static const separatorDark = Color(0xFF3A3A3C);
+
+  // === SNACKBAR ===
+  static const snackbarBackgroundColor = Color(0xFF2C2C2E);
 }
