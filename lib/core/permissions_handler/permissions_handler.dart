@@ -1,7 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class PermissionsHandler {
   static Future<void> requestCameraAndStoragePermission() async {
+    if (kDebugMode) return;
     Future<bool> requestPermissions() async {
       final cameraStatus = await Permission.camera.request();
       final storageStatus = await Permission.storage.request();

@@ -14,7 +14,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     Future.delayed(Duration(seconds: 1), () {
-      getRouter.go(RoutePath.homePath);
+      getRouter.go(RoutePath.landingPath);
     });
     super.initState();
   }

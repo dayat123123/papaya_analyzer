@@ -2,8 +2,8 @@ part of '../theme.dart';
 
 class AppThemeCubit extends Cubit<AppThemeModel> {
   bool _isDarkTheme;
-  static final bool _defaultChoiceDarkMode = true;
-  static final AppThemeModel _defaultThemeChoice = darkAppThemeModel;
+  static final bool _defaultChoiceDarkMode = false;
+  static final AppThemeModel _defaultThemeChoice = lightAppThemeModel;
   static final String _key = LocalStorageKeys.isDarkMode;
   final LocalStorage _localStorage;
 
